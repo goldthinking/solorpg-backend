@@ -1,5 +1,6 @@
 package com.solorpgbackend.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Getter;
@@ -19,9 +20,10 @@ public class ScriptTag implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("script_id")
+    @TableId(value = "script_tag_id", type = IdType.AUTO)
+    private Integer scriptTagId;
+
     private Integer scriptId;
 
-    @TableId("tag_id")
     private Integer tagId;
 }
