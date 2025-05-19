@@ -19,7 +19,7 @@ public class ScriptController {
      * 获取分页的剧本列表
      * @return Result<IPage<ScriptDTO>>
      */
-    @GetMapping("/script")
+    @GetMapping("/api/script")
     public Result getScripts(
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int size,
