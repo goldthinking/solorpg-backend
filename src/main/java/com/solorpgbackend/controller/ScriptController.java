@@ -1,6 +1,7 @@
 package com.solorpgbackend.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.solorpgbackend.dto.PaginatedResult;
 import com.solorpgbackend.dto.ScriptDTO;
 import com.solorpgbackend.service.IScriptService;
 import com.solorpgbackend.common.Result;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class ScriptController {
@@ -30,7 +33,7 @@ public class ScriptController {
             searchQuery = null;
         }
 
-        IPage<ScriptDTO> scriptPage = scriptService.getScriptsByPage(page, size, tagId, difficulty, searchQuery);  // 传递 searchQuery
+        PaginatedResult<ScriptDTO> scriptPage = scriptService.getScriptsByPage(page, size, tagId, difficulty, searchQuery);  // 传递 searchQuery
         return Result.success(scriptPage);
     }
 }

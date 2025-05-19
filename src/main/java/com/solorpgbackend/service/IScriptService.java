@@ -1,6 +1,7 @@
 package com.solorpgbackend.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.solorpgbackend.dto.PaginatedResult;
 import com.solorpgbackend.dto.ScriptDTO;
 import com.solorpgbackend.entity.Script;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -19,5 +20,5 @@ import java.util.List;
 public interface IScriptService extends IService<Script> {
     public List<Script> getAllScripts();
 
-    public IPage<ScriptDTO> getScriptsByPage(int page, int size, Integer tagId, String difficulty, String searchQuery);
+    public PaginatedResult<ScriptDTO> getScriptsByPage(int page, int size, Integer tagId, String difficulty, String querySearch);
 }
