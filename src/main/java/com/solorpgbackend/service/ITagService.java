@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Nemotte
  * @since 2025-04-25
  */
-public interface ITagsService extends IService<Tags> {
+public interface ITagService extends IService<Tags> {
 
 }

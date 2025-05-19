@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +18,7 @@ import lombok.Setter;
  * @author Nemotte
  * @since 2025-04-25
  */
-@Getter
-@Setter
+@Data
 public class GameSession implements Serializable {
 
     private static final long serialVersionUID = 1L;

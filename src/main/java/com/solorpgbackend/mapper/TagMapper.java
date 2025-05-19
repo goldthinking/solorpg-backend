@@ -1,6 +1,6 @@
 package com.solorpgbackend.mapper;
 
-import com.solorpgbackend.entity.Tags;
+import com.solorpgbackend.entity.Tag;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Nemotte
  * @since 2025-04-25
  */
-public interface TagsMapper extends BaseMapper<Tags> {
+public interface TagMapper extends BaseMapper<Tag> {
 
 }

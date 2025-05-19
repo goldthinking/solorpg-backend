@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,8 +17,7 @@ import lombok.Setter;
  * @author Nemotte
  * @since 2025-04-25
  */
-@Getter
-@Setter
+@Data
 public class CharacterQuestion implements Serializable {
 
     private static final long serialVersionUID = 1L;

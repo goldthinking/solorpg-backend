@@ -3,6 +3,9 @@ package com.solorpgbackend.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +17,7 @@ import lombok.Setter;
  * @author Nemotte
  * @since 2025-04-25
  */
-@Getter
-@Setter
+@Data
 public class Script implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,10 +46,13 @@ public class Script implements Serializable {
     /**
      * 剧本作者
      */
-    private String scriptAuthor;
+    private String author;
 
     /**
      * 剧本难度
      */
-    private String scriptDiff;
+    private String difficulty;
+
+    // 非数据库字段，用于返回关联的标签
+    private List<Tag> tags;
 }
