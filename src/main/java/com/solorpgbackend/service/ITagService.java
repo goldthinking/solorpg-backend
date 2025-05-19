@@ -1,6 +1,6 @@
 package com.solorpgbackend.service;
 
-import com.solorpgbackend.entity.Tags;
+import com.solorpgbackend.entity.Tag;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Nemotte
  * @since 2025-04-25
  */
-public interface ITagService extends IService<Tags> {
+public interface ITagService extends IService<Tag> {
 
 }

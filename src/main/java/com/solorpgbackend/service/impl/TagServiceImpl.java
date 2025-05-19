@@ -1,6 +1,6 @@
 package com.solorpgbackend.service.impl;
 
-import com.solorpgbackend.entity.Tags;
+import com.solorpgbackend.entity.Tag;
 import com.solorpgbackend.mapper.TagMapper;
 import com.solorpgbackend.service.ITagService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2025-04-25
  */
 @Service
-public class TagServiceImpl extends ServiceImpl<TagMapper, Tags> implements ITagService {
+public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagService {
 
 }
