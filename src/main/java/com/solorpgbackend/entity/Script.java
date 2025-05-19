@@ -53,6 +53,8 @@ public class Script implements Serializable {
      */
     private String difficulty;
 
-    // 非数据库字段，用于返回关联的标签
-    private List<Tag> tags;
+    /**
+     * 游玩次数
+     */
+    private Integer playTimes;
 }
