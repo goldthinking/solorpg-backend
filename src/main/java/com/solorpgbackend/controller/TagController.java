@@ -13,6 +13,6 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 @RequestMapping("/tags")
-public class TagsController {
+public class TagController {
 
 }
