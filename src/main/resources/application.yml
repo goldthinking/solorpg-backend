@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: solorpg-backend
+
+  datasource:
+    url: jdbc:mysql://124.220.94.212:3306/solorpg?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: Nemotte
+    password: Jinhuahua_312
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      validation-timeout: 5000
+      keepalive-time: 200000
+      connection-test-query: SELECT 1
+
+server:
+  port: 8848
+
+springdoc:
+  swagger-ui:
+    path: /doc.html
+knife4j:
+  enable: true

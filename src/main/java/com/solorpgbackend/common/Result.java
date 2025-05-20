@@ -1,30 +1,46 @@
 package com.solorpgbackend.common;
 
-public class Result {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "通用响应包装")
+public class Result<T> {
+
     private static final String SUCCESS = "200";
     private static final String ERROR = "-1";
-    private String code;
-    private String msg;
-    private Object data;
 
-    public static Result success(){
-        Result result = new Result();
+    @Schema(description = "状态码", example = "200")
+    private String code;
+
+    @Schema(description = "消息", example = "操作成功")
+    private String msg;
+
+    @Schema(description = "返回数据")
+    private T data;
+
+    public static <T> Result<T> success() {
+        Result<T> result = new Result<>();
         result.setCode(SUCCESS);
+        result.setMsg("成功");
         return result;
     }
-    public static Result success(Object data){
-        Result result = new Result();
+
+    public static <T> Result<T> success(T data) {
+        Result<T> result = new Result<>();
         result.setCode(SUCCESS);
+        result.setMsg("成功");
         result.setData(data);
         return result;
     }
 
-    public static Result error(String msg){
-        Result result = new Result();
+    public static <T> Result<T> error(String msg) {
+        Result<T> result = new Result<>();
         result.setCode(ERROR);
         result.setMsg(msg);
         return result;
     }
+
+    // Getters and Setters
+
     public String getCode() {
         return code;
     }
@@ -41,11 +57,11 @@ public class Result {
         this.msg = msg;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }
