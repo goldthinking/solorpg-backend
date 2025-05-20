@@ -28,6 +28,9 @@ jobs:
         run: |
           ssh ubuntu@124.220.94.212 '
             cd /home/ubuntu/services/solorpg/solorpg-backend &&
+            git fetch origin && 
+            git reset --hard origin/main && 
+            git clean -fd && 
             git pull &&
             mvn clean package &&
             docker-compose -f /home/ubuntu/services/solorpg/docker-compose.yml up -d &&
