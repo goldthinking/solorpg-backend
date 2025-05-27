@@ -198,3 +198,95 @@ jobs:
 > - 完成 Prompt 调整，减少剧透风险
 > - 前端 UI/UX 微调
 > - 接口设计和实现
+
+````json
+# 剧本格式
+
+```json
+{
+    "characters": [
+        {
+            "name": "林医生",
+            "avatar": "https://example.com/avatars/dr_lin.jpg",
+            "desc": "山庄的家庭医生，对医学有丰富的知识，善于观察细节。"
+        },
+        {
+            "name": "威廉·罗斯",
+            "avatar": "https://example.com/avatars/william.jpg",
+            "desc": "庄园主人，富有的企业家，拥有神秘的过去。"
+        },
+        ...
+    ],
+    "chapters": [
+        {
+            "title": "神秘的开端",
+            "content": "这是一个风雨交加的夜晚，你收到了一封烫金边的神秘邀请函。信封上用优雅的字体写着：\"亲爱的客人，诚邀您于今晚8点莅临玫瑰庄园，参加一场特别的聚会。\"落款是庄园主人威廉·罗斯。...",
+            "map": {
+                "image": "https://example.com/maps/mansion_map.jpg",
+                "locations": [
+                    {
+                        "name": "李小姐的房间",
+                        "position": {
+                            "left": "15%",
+                            "top": "60%"
+                        },
+                        "clues": [
+                            {
+                                "image": "https://example.com/clues/broken_watch.jpg",
+                                "desc": "断裂的怀表（时间停在11:05）",
+                            },
+                            {
+                                "image": "https://example.com/clues/bloodstain.jpg",
+                                "desc": "书桌上的血迹"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "王管家的房间",
+                        "position": {
+                            "left": "22%",
+                            "top": "26%"
+                        },
+                        "clues": [
+                            {
+                                "image": "https://example.com/clues/medicine.jpg",
+                                "description": "床下的药瓶"
+                            }
+                        ]
+                    }
+                ],
+            },
+            "npcs": [
+                {
+                    "name": "李小姐",
+                    "avatar": "https://example.com/avatars/ms_li.jpg",
+                    "dialogues": 1
+                },
+                {
+                    "name": "王管家",
+                    "avatar": "https://example.com/avatars/butler_wang.jpg",
+                    "dialogues": 3
+                }
+            ],
+            "truth": "这里存本章节的真相和与其他npc有关的文本",
+            "questions": [
+                {
+                    "question": "这个雪夜里谁最有可能进入死者的房间？为什么？",
+                    "referenceAnswer": "分析足迹和时间线，应该是王管家。雪地上有新鲜足迹通向死者房间，而且根据时间线王管家是最后见到死者的人。",
+                },
+                {
+                    "question": "李小姐和王管家的证词冲突，谁更可信？",
+                    "referenceAnswer": "王管家的说法更可信。因为李小姐与死者有经济纠纷且性格冲动，而王管家是老员工，性格稳重没有作案动机。",
+                }
+            ]
+        },
+        ...
+    ],
+    "reveal": {
+        "title": "案件真相",
+        "content": "随着调查的深入，真相逐渐浮出水面。李小姐利用职务之便设置延时机关，通过伪造遗书制造自杀假象。关键证据链完整，包含指纹、纤维物证及墨水鉴定结果..."
+    }
+}
+```
+````
+
