@@ -125,4 +125,28 @@ public class ScriptServiceImpl extends ServiceImpl<ScriptMapper, Script> impleme
         }
         return List.of();
     }
+
+    @Override
+    public Script getScriptById(Integer scriptId) {
+        return scriptMapper.selectById(scriptId);
+    }
+
+    @Override
+    public ScriptDTO getScriptDTOById(Integer scriptId) {
+        Script script = scriptMapper.selectById(scriptId);
+        ScriptDTO scriptDTO = new ScriptDTO();
+        scriptDTO.setScriptId(script.getScriptId());
+        scriptDTO.setScriptName(script.getScriptName());
+        scriptDTO.setScriptDescription(script.getScriptDescription());
+        scriptDTO.setScriptData(script.getScriptData());
+        scriptDTO.setAuthor(script.getAuthor());
+        scriptDTO.setDifficulty(script.getDifficulty());
+        scriptDTO.setPlayTimes(script.getPlayTimes());
+
+        // 加载标签信息
+        List<Tag> tags = loadScriptTags(script);
+        scriptDTO.setTags(tags);
+
+        return scriptDTO;
+    }
 }

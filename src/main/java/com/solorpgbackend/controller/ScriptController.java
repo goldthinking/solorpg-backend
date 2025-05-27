@@ -3,6 +3,7 @@ package com.solorpgbackend.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.solorpgbackend.dto.PaginatedResult;
 import com.solorpgbackend.dto.ScriptDTO;
+import com.solorpgbackend.entity.Script;
 import com.solorpgbackend.service.IScriptService;
 import com.solorpgbackend.common.Result;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,5 +46,45 @@ public class ScriptController {
 
         PaginatedResult<ScriptDTO> scriptPage = scriptService.getScriptsByPage(page, size, tagId, difficulty, searchQuery);  // 传递 searchQuery
         return Result.success(scriptPage);
+    }
+
+    /**
+     * 根据剧本ID获取剧本详情
+     * @param scriptId 剧本ID
+     * @return Result<ScriptDTO>
+     */
+    @GetMapping("/api/script/{scriptId}")
+    @Operation(
+            summary = "获取剧本详情",
+            description = "根据剧本ID返回剧本的详细信息"
+    )
+    @ApiResponse(responseCode = "200", description = "获取成功", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ScriptDTO.class)))
+    @ApiResponse(responseCode = "-1", description = "剧本未找到")
+    public Result<Script> getScriptById(@PathVariable("scriptId") Integer scriptId) {
+        Script script = scriptService.getScriptById(scriptId);
+        if (script == null) {
+            return Result.error("剧本未找到");
+        }
+        return Result.success(script);
+    }
+
+    /**
+     * 根据剧本ID获取剧本详情
+     * @param scriptId 剧本ID
+     * @return Result<ScriptDTO>
+     */
+    @GetMapping("/api/scriptDTO/{scriptId}")
+    @Operation(
+            summary = "获取剧本详情",
+            description = "根据剧本ID返回剧本的详细信息"
+    )
+    @ApiResponse(responseCode = "200", description = "获取成功", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ScriptDTO.class)))
+    @ApiResponse(responseCode = "-1", description = "剧本未找到")
+    public Result<ScriptDTO> getScriptDTOById(@PathVariable("scriptId") Integer scriptId) {
+        ScriptDTO scriptDTO = scriptService.getScriptDTOById(scriptId);
+        if (scriptDTO == null) {
+            return Result.error("剧本未找到");
+        }
+        return Result.success(scriptDTO);
     }
 }
