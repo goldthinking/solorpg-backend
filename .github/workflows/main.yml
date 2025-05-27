@@ -33,7 +33,6 @@ jobs:
             git clean -fd && 
             git pull &&
             mvn clean package &&
-            docker-compose -f /home/ubuntu/services/solorpg/docker-compose.yml up -d &&
             docker-compose -f /home/ubuntu/services/solorpg/docker-compose.yml down &&
             docker-compose -f /home/ubuntu/services/solorpg/docker-compose.yml rm solorpg-backend &&
             docker rmi solorpg-backend &&
