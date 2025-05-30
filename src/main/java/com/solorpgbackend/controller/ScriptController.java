@@ -49,14 +49,14 @@ public class ScriptController {
     }
 
     /**
-     * 根据剧本ID获取剧本详情
+     * 根据剧本ID获取剧本游戏数据
      * @param scriptId 剧本ID
-     * @return Result<ScriptDTO>
+     * @return Result<Script>
      */
     @GetMapping("/api/script/{scriptId}")
     @Operation(
-            summary = "获取剧本详情",
-            description = "根据剧本ID返回剧本的详细信息"
+            summary = "获取剧本游戏数据",
+            description = "根据剧本ID返回剧本游戏数据"
     )
     @ApiResponse(responseCode = "200", description = "获取成功", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ScriptDTO.class)))
     @ApiResponse(responseCode = "-1", description = "剧本未找到")
